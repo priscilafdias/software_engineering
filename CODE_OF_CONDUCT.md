@@ -1,45 +1,41 @@
-## Code of Conduct for "ReStyle" - Sharing Outfits for Job Interviews and Special Occasions
+#Code of Conduct
 
-### Objective
-Our project is committed to fostering an inclusive and respectful environment for all team members and users. The goal is to work collaboratively and responsibly to create a platform that benefits the community.
+##Introduction
+Our community is dedicated to providing a welcoming, inclusive, and respectful environment for all contributors, regardless of background, experience level, or identity. To ensure a positive experience for everyone, we have established the following Code of Conduct.
 
-### Guidelines for Behavior
-To ensure a positive and productive environment, all participants are expected to:
+##Expected Behavior
+All participants in our project community are expected to:
+- Be respectful and considerate to others
+- Communicate openly and constructively
+- Be mindful of the diverse perspectives and experiences of others
+- Practice active listening and approach others with empathy
+- Be collaborative and work toward common goals
+- Offer constructive feedback and recognize the contributions of others
+- Assume good intentions and act with kindness
+  
+##Unacceptable Behavior
+The following behaviors are considered unacceptable in our community:
+- Personal attacks, trolling, or inflammatory comments
+- Discrimination, harassment, or exclusion based on race, gender, age, sexual orientation, disability, or any other characteristic
+- Use of offensive language or inappropriate imagery
+- Intimidation or threatening behavior, either direct or implied
+- Public or private harassment of individuals
+- Sharing private or personal information without consent
+- Any form of disruptive or unprofessional behavior that undermines the community's safety and inclusiveness
+  
+##Reporting and Enforcement
+If you encounter or witness any behavior that violates this Code of Conduct, we encourage you to raise the issue in an appropriate manner within the community. This can include:
+- Opening an issue in the project repository to highlight concerns
+- Engaging in respectful discussions in the community spaces or forums (e.g., chat, discussion boards)
+- Tagging a project maintainer or contributor for attention
+- Maintainers and community members are encouraged to address violations as soon as they are identified and to do so in a manner that prioritizes respectful dialogue and resolution.
 
-### Treat Others with Respect:
-Show courtesy and professionalism in all interactions. Avoid behavior that could be offensive or disruptive.
+##Consequences of Unacceptable Behavior
+Unacceptable behavior may result in actions such as:
+- A request to cease the inappropriate behavior
+- Removal of offending content or code
+- Temporary suspension of access to community spaces (chat, forums, etc.)
+- Permanent ban from contributing to the project or participating in the community
 
-### Contribute Actively:
-Engage in discussions, complete assigned tasks on time, and support team members when they face challenges.
-
-### Communicate Effectively:
-Share updates regularly, listen to feedback, and use clear language when explaining ideas or reporting issues.
-
-### Uphold Privacy and Security:
-Protect sensitive user and team data. Avoid sharing information without proper permission.
-
-### Follow Ethical Standards:
-Ensure that all features and decisions align with ethical guidelines, promoting fairness and equality.
-
-### Unacceptable Behavior
-The following actions are strictly prohibited:
-
-### Discrimination or harassment based on race, gender, religion, or any personal characteristic.
-Using inappropriate language or behaving aggressively.
-Introducing harmful or unethical code intentionally.
-Ignoring team agreements or refusing to contribute equally.
-Addressing Issues
-If a team member experiences or observes a violation of this Code of Conduct, they should:
-
-### Inform the team lead or project coordinator promptly.
-Document the details of the incident to help address the situation clearly.
-Ensure confidentiality is maintained unless permission is granted for further action.
-Consequences of Violations
-Actions that violate this Code of Conduct may lead to:
-
-A warning, either verbal or written.
-Exclusion from specific team responsibilities.
-Removal from the project in severe cases.
-
-### Commitment
-By participating in this project, all members agree to follow these guidelines and contribute to a safe and welcoming environment.
+##Conclusion
+By participating in our project, you agree to follow this Code of Conduct. We value your participation and strive to maintain an inclusive, friendly, and respectful environment for everyone. Thank you for contributing to our community!
