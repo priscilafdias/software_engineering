@@ -1,4 +1,4 @@
-# Code of Conduct
+# ReStyle-Code of Conduct
 
 ## Introduction
 Our community is dedicated to providing a welcoming, inclusive, and respectful environment for all contributors, regardless of background, experience level, or identity. To ensure a positive experience for everyone, we have established the following Code of Conduct.
