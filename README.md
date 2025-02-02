@@ -16,7 +16,7 @@ Key Features
 User Profiles: Users can create profiles to list clothes for sharing, swapping, or donating.
 Item Listings: Add detailed descriptions, images, and tags for clothes you want to share.
 Search & Filter: Discover clothes by size, type, location, or condition.
-@@ -16,12 +15,13 @@ Donation Option: Partner with charities to enable clothing donations.
+Donation Option: Partner with charities to enable clothing donations.
 Chat Functionality: Communicate directly with other users to finalize exchanges.
 Sustainability Metrics: Track the environmental impact of your contributions (e.g., items saved from landfill).
 Technology Stack
