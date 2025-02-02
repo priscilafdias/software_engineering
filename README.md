@@ -1,17 +1,11 @@
-software_engineering
 # Software_engineering
 Software Engineering Project
 
-ReStyle
-Project Overview
-ReStyle is a platform designed to promote sustainability and reduce fashion waste by enabling users to share, swap, or donate clothes. 
-The platform connects individuals who want to declutter their closets while giving their clothes a second life. 
 ## ReStyle
 ## Project Overview
 ReStyle is a platform designed to promote sustainability and reduce fashion waste by enabling users to share, swap, or donate clothes. The platform connects individuals who want to declutter their closets while giving their clothes a second life. 
 ReStyle encourages a community-driven approach to sustainable fashion.
 
-Key Features
 # Key Features
 User Profiles: Users can create profiles to list clothes for sharing, swapping, or donating.
 Item Listings: Add detailed descriptions, images, and tags for clothes you want to share.
@@ -29,11 +23,6 @@ Backend: Node.js, Express.js, MySQL database
 DevOps and CI/CD: Docker,  Git, Github actions 
 Project management: Github project 
 
-Authors: 
-Ishma Gurung GUR22608159
-Maftuna Abdusaitova ABD22512518
-Priscila Dias Pirani DIA22613585
-Hanna Ahmed Aden ADE21499736
 ## Authors: 
 - Ishma Gurung GUR22608159
 - Maftuna Abdusaitova ABD22512518
