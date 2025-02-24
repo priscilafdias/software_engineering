@@ -1,0 +1,15 @@
+Considerations about Sprint 2 
+
+Grade Sprint 1: 64
+Grade Sprint 2: 73
+
+
+Sequence Diagram: The lifetime of the object (how long that object will exist), each user needs ta have a sequence diagram for themselves and; a separate diagram for the seller and lender. (4 sequence diagrams, one for each user). 
+Be careful with the arrows.
+
+UML: *Diamond box*
+
+Class Diagram: Correct the arrows, not a child arrow;
+
+Reduce the number of options for each category (4 or 5 options);
+
