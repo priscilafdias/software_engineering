@@ -1,0 +1,98 @@
+Database Entities & Relationships
+Entities
+Users
+
+Stores all users (Lenders and Sellers).
+Attributes: user_id, email, password, first_name, last_name, role, status, is_admin, etc.
+Primary Key: user_id
+Profiles
+
+Stores additional profile details.
+Attributes: profile_id, user_id, preferences (like clothing types, size, or any other preferences).
+Primary Key: profile_id
+Foreign Key: user_id (links to Users)
+Clothes
+
+Stores information about the clothes listed for rent or sale by Sellers.
+Attributes: item_id, seller_id, title, description, price, category, size, color, status, created_at, etc.
+Primary Key: item_id
+Foreign Key: seller_id (links to Users)
+ClothesImages
+
+Stores images for the clothes listed.
+Attributes: image_id, item_id, image_url.
+Primary Key: image_id
+Foreign Key: item_id (links to Clothes)
+Messages
+
+Stores messages between Lenders and Sellers.
+Attributes: message_id, sender_id, receiver_id, content, created_at, read_status.
+Primary Key: message_id
+Foreign Key: sender_id (links to Users), receiver_id (links to Users)
+Wishlist
+
+Stores clothes saved by Lenders for future interest.
+Attributes: wishlist_id, user_id, item_id, added_at.
+Primary Key: wishlist_id
+Foreign Key: user_id (links to Users), item_id (links to Clothes)
+Transactions
+
+Stores records of Lenders renting or buying clothes.
+Attributes: transaction_id, lender_id, item_id, transaction_type, amount, status, payment_method, delivery_method, created_at.
+Primary Key: transaction_id
+Foreign Key: lender_id (links to Users), item_id (links to Clothes)
+Reviews
+
+Stores reviews Lenders leave for clothes they rented or bought.
+Attributes: review_id, lender_id, item_id, rating, review_text, created_at.
+Primary Key: review_id
+Foreign Key: lender_id (links to Users), item_id (links to Clothes)
+AdminActions
+
+Tracks admin activities such as approving, suspending, or deleting user accounts.
+Attributes: action_id, admin_id, action_type, target_user_id, action_details, action_timestamp.
+Primary Key: action_id
+Foreign Key: admin_id (links to Users), target_user_id (links to Users)
+PrivacySettings
+
+Stores privacy settings for each user.
+Attributes: setting_id, user_id, data_sharing, marketing_emails, location_tracking.
+Primary Key: setting_id
+Foreign Key: user_id (links to Users)
+Relationships Between Entities
+Users and Profiles
+
+One-to-One: A user can have one profile.
+Foreign Key: user_id in Profiles refers to Users(user_id).
+Users and Clothes
+
+One-to-Many: A seller can have multiple clothes listings.
+Foreign Key: seller_id in Clothes refers to Users(user_id).
+Clothes and ClothesImages
+
+One-to-Many: A clothes item can have multiple images.
+Foreign Key: item_id in ClothesImages refers to Clothes(item_id).
+Users and Messages
+
+Many-to-Many (through Messages): A user (lender) can send multiple messages to different sellers, and vice versa.
+Foreign Keys: sender_id and receiver_id in Messages refer to Users(user_id).
+Users and Wishlist
+
+One-to-Many: A user can have multiple clothes on their wishlist.
+Foreign Key: user_id in Wishlist refers to Users(user_id), and item_id in Wishlist refers to Clothes(item_id).
+Users and Transactions
+
+One-to-Many: A lender can have multiple transactions.
+Foreign Key: lender_id in Transactions refers to Users(user_id), and item_id in Transactions refers to Clothes(item_id).
+Users and Reviews
+
+One-to-Many: A lender can leave multiple reviews on clothes.
+Foreign Key: lender_id in Reviews refers to Users(user_id), and item_id in Reviews refers to Clothes(item_id).
+Users and AdminActions
+
+One-to-Many: An admin can perform multiple actions on user accounts.
+Foreign Key: admin_id and target_user_id in AdminActions refer to Users(user_id).
+Users and PrivacySettings
+
+One-to-One: Each user has one privacy setting.
+Foreign Key: user_id in PrivacySettings refers to Users(user_id).
