@@ -1,0 +1,263 @@
+Users Table 
+Stores user information, including whether they are a Lender or Seller. 
+
+ 
+
+CREATE TABLE Users ( 
+
+    user_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    email VARCHAR(255) UNIQUE NOT NULL, 
+
+    password VARCHAR(255) NOT NULL, 
+
+    first_name VARCHAR(100), 
+
+    last_name VARCHAR(100), 
+
+    role ENUM('Lender', 'Seller') NOT NULL, 
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+
+    status ENUM('Active', 'Suspended', 'Deleted') DEFAULT 'Active', 
+
+    is_admin BOOLEAN DEFAULT FALSE 
+
+); 
+
+ 
+
+Profiles Table 
+Stores additional profile details for users, including preferences. 
+
+ 
+
+CREATE TABLE Profiles ( 
+
+    profile_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    user_id INT, 
+
+    preferences TEXT, -- For example, favorite categories or clothing types 
+
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) 
+
+); 
+
+ 
+
+Clothes Table 
+Stores information about clothes listed by Sellers. 
+
+ 
+
+CREATE TABLE Clothes ( 
+
+    item_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    seller_id INT, 
+
+    title VARCHAR(255) NOT NULL, 
+
+    description TEXT, 
+
+    price DECIMAL(10, 2) NOT NULL, 
+
+    category VARCHAR(100), 
+
+    size VARCHAR(50), 
+
+    color VARCHAR(50), 
+
+    status ENUM('Available', 'Rented', 'Sold') DEFAULT 'Available', 
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+
+    FOREIGN KEY (seller_id) REFERENCES Users(user_id) 
+
+); 
+
+ 
+
+Clothes Images Table 
+Stores images of clothes uploaded by Sellers. 
+
+ 
+
+CREATE TABLE ClothesImages ( 
+
+    image_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    item_id INT, 
+
+    image_url VARCHAR(255) NOT NULL, 
+
+    FOREIGN KEY (item_id) REFERENCES Clothes(item_id) 
+
+); 
+
+ 
+
+Messages Table 
+Stores messages exchanged between Lenders and Sellers. 
+
+ 
+
+CREATE TABLE Messages ( 
+
+    message_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    sender_id INT, 
+
+    receiver_id INT, 
+
+    content TEXT, 
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+
+    read_status BOOLEAN DEFAULT FALSE, 
+
+    FOREIGN KEY (sender_id) REFERENCES Users(user_id), 
+
+    FOREIGN KEY (receiver_id) REFERENCES Users(user_id) 
+
+); 
+
+ 
+
+Wishlist Table 
+Stores clothes added to a Lender's wishlist. 
+
+ 
+
+CREATE TABLE Wishlist ( 
+
+    wishlist_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    user_id INT, 
+
+    item_id INT, 
+
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+
+    FOREIGN KEY (user_id) REFERENCES Users(user_id), 
+
+    FOREIGN KEY (item_id) REFERENCES Clothes(item_id) 
+
+); 
+
+ 
+
+Transactions Table 
+Stores transaction records for clothes rented or purchased by Lenders. 
+
+ 
+
+CREATE TABLE Transactions ( 
+
+    transaction_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    lender_id INT, 
+
+    item_id INT, 
+
+    transaction_type ENUM('Rent', 'Purchase') NOT NULL, 
+
+    amount DECIMAL(10, 2) NOT NULL, 
+
+    status ENUM('Pending', 'Completed', 'Cancelled') DEFAULT 'Pending', 
+
+    payment_method ENUM('Credit Card', 'PayPal', 'Bank Transfer'), 
+
+    delivery_method ENUM('Delivery', 'Pick-up') NOT NULL, 
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+
+    FOREIGN KEY (lender_id) REFERENCES Users(user_id), 
+
+    FOREIGN KEY (item_id) REFERENCES Clothes(item_id) 
+
+); 
+
+ 
+
+Reviews Table 
+Stores reviews left by Lenders for clothes they rented or purchased. 
+
+ 
+
+CREATE TABLE Reviews ( 
+
+    review_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    lender_id INT, 
+
+    item_id INT, 
+
+    rating INT CHECK (rating >= 1 AND rating <= 5), 
+
+    review_text TEXT, 
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+
+    FOREIGN KEY (lender_id) REFERENCES Users(user_id), 
+
+    FOREIGN KEY (item_id) REFERENCES Clothes(item_id) 
+
+); 
+
+ 
+
+Admin Actions Table 
+Tracks admin actions, such as account approvals, suspensions, or deletions. 
+
+ 
+
+CREATE TABLE AdminActions ( 
+
+    action_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    admin_id INT, 
+
+    action_type ENUM('Approve', 'Suspend', 'Delete', 'Update Privacy') NOT NULL, 
+
+    target_user_id INT, 
+
+    action_details TEXT, 
+
+    action_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+
+    FOREIGN KEY (admin_id) REFERENCES Users(user_id), 
+
+    FOREIGN KEY (target_user_id) REFERENCES Users(user_id) 
+
+); 
+
+ 
+
+Privacy Settings Table 
+Stores privacy settings for each user, ensuring that their data is protected. 
+
+ 
+
+CREATE TABLE PrivacySettings ( 
+
+    setting_id INT PRIMARY KEY AUTO_INCREMENT, 
+
+    user_id INT, 
+
+    data_sharing ENUM('Public', 'Private') DEFAULT 'Private', 
+
+    marketing_emails BOOLEAN DEFAULT TRUE, 
+
+    location_tracking BOOLEAN DEFAULT FALSE, 
+
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) 
+
+); 
+
+ 
