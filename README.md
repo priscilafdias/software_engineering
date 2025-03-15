@@ -1,7 +1,7 @@
 ## Software Engineering Project
 
 ## ReStyle
-<img src="https://github.com/user-attachments/assets/a4e172c2-1243-45d4-a9cd-7b89b8fb53cc" alt="Image" width="500" height="300">
+<img src="https://github.com/user-attachments/assets/a4e172c2-1243-45d4-a9cd-7b89b8fb53cc" alt="Image" width="200" height="200">
 
 
 ## Project Overview:
