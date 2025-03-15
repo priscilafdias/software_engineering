@@ -1,0 +1,195 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Fashion Icon
+    link(rel="stylesheet" href="home.css")
+    link(rel="stylesheet" href="explore.css")
+    
+    // FontAwesome for icons
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=volunteer_activism")
+
+  body
+    header
+      nav.brandbar
+        span.brand-name ReStyle
+
+      // Navigation Bar
+      nav.navbar
+        ul.nav-links
+          li.logo
+            img(src="logo.jpg" alt="Fashion Icon logo")
+
+          li: a(href="#home") HOME
+          li: a(href="#explore") EXPLORE
+          li: a(href="#about") ABOUT
+          
+          // BROWSE DROPDOWN
+          li.dropdown#browse-dropdown
+            a(href="#" id="browse-btn" title="To Donate, Share, Sell Click me") BROWSE
+            ul.dropdown-menu
+              li.dropdown-sub
+                a(href="#") DONATE
+                ul.submenu
+                  li: a(href="#" onclick="openUploadForm('donate')") Women
+                  li: a(href="#" onclick="openUploadForm('donate')") Men
+                  li: a(href="#" onclick="openUploadForm('donate')") Kids
+
+              li.dropdown-sub
+                a(href="#") SHARE
+                ul.submenu
+                  li: a(href="#" onclick="openUploadForm('share')") Women
+                  li: a(href="#" onclick="openUploadForm('share')") Men
+                  li: a(href="#" onclick="openUploadForm('share')") Kids
+
+              li.dropdown-sub
+                a(href="#") SELL
+                ul.submenu
+                  li: a(href="#" onclick="openUploadForm('sell')") Women
+                  li: a(href="#" onclick="openUploadForm('sell')") Men
+                  li: a(href="#" onclick="openUploadForm('sell')") Kids
+
+          li: a(href="#contact") CONTACT
+
+          // NAVBAR ICONS
+          div.nav-icons
+            li: i.fav-icon.fas.fa-heart(title="Your Favourites")
+            li: i.cart-icon.fas.fa-shopping-cart(title="View your cart")
+
+            // PROFILE DROPDOWN
+            li.dropdown.profile-menu
+              a(href="#" id="profile-btn")
+                i.profile-icon.fas.fa-user-circle
+              ul.dropdown-menu#profile-menu
+                li: a(href="#" id="settings-link") 
+                  i.fas.fa-cogs Settings
+                li: a(href="#" id="profile-link")
+                  i.fas.fa-user My Profile
+                li: a(href="#" id="logout-link")
+                  i.fas.fa-sign-out-alt Logout
+
+            span.material-symbols-outlined(title="To view donated items, click here") volunteer_activism
+
+        // Hamburger Icon (Mobile)
+        div.menu-icon(onclick="toggleMenu()")
+          i.fas.fa-bars
+
+        div.search-box
+          input(type="text" placeholder="What are you looking for.....")
+          button 🔍
+
+    // Upload Form
+    div#upload-form.upload-form-container.hidden
+      h3#upload-title Upload Your Item
+      label(for="item-image") Upload Image:
+      input(type="file" id="item-image" accept="image/*" required)
+
+      div#price-field(style="display: none;")
+        label(for="item-price") Price(£) 
+          small (for selling only)
+        input(type="number" id="item-price")
+
+      form#upload-item-form
+        label(for="item-name") Item Name:
+        select#item-name(required)
+          option(value="" disabled selected) Select an Occasion
+          option(value="job-interview") Job Interviews
+          option(value="wedding") Wedding
+          option(value="birthday-party") Birthday Party
+          option(value="date-night") Date Night
+          option(value="school-events") School Events
+
+        label(for="item-condition") Condition:
+        select#item-condition(required)
+          option(value="" disabled selected) Condition
+          option(value="new") New
+          option(value="like-new") Like New
+          option(value="gently-used") Gently Used
+          option(value="worn") Worn
+
+        label(for="item-size") Size:
+        select#item-size(required)
+          option(value="" disabled selected) Select Size(Approx.)
+          option(value="xs") XS(12-13 yrs)
+          option(value="s") S(14-15 yrs)
+          option(value="m") M(16-17 yrs)
+          option(value="l") L(18-19 yrs)
+          option(value="xl") XL(20+ yrs)
+          option(value="xxl") XXL(Adults, Plus Size)
+
+        label(for="item-description") Description:
+        textarea#item-description(required)
+
+        button(type="submit") Submit
+        button(type="button" onclick="closeUploadForm()") Cancel
+
+    // Home Section
+    section#home
+      .container
+        img.img(src="model.jpg" alt="Background Image")
+        .text-content
+          h1 Fashion that finds you
+          p 
+            i 
+              b "A home for everyone"
+        .shared-collection
+          a(href="shared-collection.html")
+            button.shared-collection-btn Shared Collection
+
+    // Explore Section
+    section#explore
+      .explore-container
+        .explore-text
+          h2 Explore Our Collection
+          p Discover the latest fashion trends and products that speak to your unique style.
+
+        .explore-images
+          img(src="explore1.webp" alt="Explore 1")
+          img(src="explore2.webp" alt="Explore 2")
+          img(src="explore3.jpeg" alt="Explore 3")
+
+        .explore-more
+          a(href="explore.html")
+            button.explore-more-btn Explore More
+
+    // About Section
+    section#about
+      .about-container
+        h2 About Us
+        h1 WHO WE ARE
+        p We are passionate about fashion that brings comfort, style, and uniqueness to every individual...
+        p Our main focus is on sharing outfits, allowing users to lend and borrow dresses for wedding, parties, and other events...
+        p Remember, great style is meant to be shared! 💃✨
+
+    // Contact Section
+    section#contact
+      .contact-container
+        h2 Contact Us
+        form(action="submit_form.php" method="POST")
+          label(for="name") Name:
+          input(type="text" id="name" name="name" required)
+          label(for="email") Email:
+          input(type="email" id="email" name="email" required)
+          label(for="message") Message:
+          textarea(id="message" name="message" rows="4" required)
+          button(type="submit") Submit
+
+    // Footer Section
+    footer
+      .footer-container
+        p Fashion Icon - ReStyle
+        p London, United Kingdom
+        p &copy; 2025 Fashion Icon. All rights reserved.
+        p Contact us: 
+          a(href="tel:+1234567890") +1 (234) 567-890
+        p LET'S CONNECT!!
+        .social-media
+          a(href="#") i.fab.fa-facebook
+          a(href="#") i.fab.fa-twitter
+          a(href="#") i.fab.fa-instagram
+        p: a(href="#share-section") HowToShare
+        p: a(href="#privacy-section") Privacy
+
+    script(src="script.js")
