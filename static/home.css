@@ -67,11 +67,11 @@ html, body {
 
 /* ✅ Logo Styling */
 .logo img {
-    height: 70px;
+    height: 100px;
     width: 70px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgb(8, 5, 3);
+    border: 1px solid rgb(8, 5, 3);
 }
 
 /* Brand Name - ReStyle */
@@ -134,11 +134,6 @@ html, body {
 
 
 
-
-
-
-
-
 /* ✅ Search Box */
 .search-box {
     display: flex;
@@ -185,9 +180,9 @@ html, body {
 }
 
 .text-content p {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: lighter;
-    color: #333333;
+    color: #fe3276fe;
 }
 
 /* Dropdown Styling */
@@ -305,7 +300,7 @@ html, body {
         padding: 10px 0;
     }
 
-    /* 🔥 Fix Profile Menu in Mobile */
+    /* Fix Profile Menu in Mobile */
     .profile-menu {
         width: 100%; /* Make it full width */
         text-align: center; /* Center it */
@@ -547,6 +542,13 @@ footer .social-media a:hover {
     color: #ffcc00;
 }
 
+.fa-brands {
+    display: inline-block;
+    font-size: 24px;
+    color: white 
+}
+
+
 /*Basic styling for the modal */
 .modal {
     display: none;
@@ -750,7 +752,7 @@ footer .social-media a:hover {
 }
 
 .fav-icon, .cart-icon, .profile-icon {
-    font-size: 25px;
+    font-size: 50px;
     color: white;
     cursor: pointer;
     transition: color 0.3s;
@@ -802,6 +804,8 @@ a:hover {
     z-index: 100; /* Ensure it stays on top of other content */
 }
 
+
+
 /* Style for each dropdown item */
 .dropdown-menu li {
     padding: 10px;
@@ -810,7 +814,8 @@ a:hover {
 
 .profile-menu .dropdown-menu li a {
     text-decoration: none;
-    color: #333;
+    font-size: 18px;
+    color: #0f0e0e;
     display: block;
     transition: background-color 0.3s ease;
 }
@@ -826,7 +831,7 @@ a:hover {
 
 /* Styling for the profile icon */
 .profile-icon {
-    font-size: 30px;
+    font-size: 50px;
     color: #fbfbfb;
     cursor: pointer;
     position: relative;
@@ -845,7 +850,6 @@ a:hover {
 #delete-btn:hover {
     background-color: darkred;
 }
-
 
 
 

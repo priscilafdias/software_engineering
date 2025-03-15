@@ -120,5 +120,5 @@ function closeUploadForm() {
 
 document.getElementById("profile-link").addEventListener("click", function (event) {
     event.preventDefault(); // Prevents default anchor behavior
-    window.location.href = "profile.html"; // Redirects to profile page
+    window.location.href = "profile"; // Redirects to profile page
 });

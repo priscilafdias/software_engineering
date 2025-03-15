@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // ✅ Redirect ONLY if validation passes
             if (valid) {
                 if (form.parentElement.id === "register-form") {
-                    window.location.href = "home.html"; // Redirect to home after registration
+                    window.location.href = "home"; // Redirect to home after registration
                 } else {
-                    window.location.href = "home.html"; // Redirect to index after login
+                    window.location.href = "home"; // Redirect to index after login
                 }
             }
         });
@@ -79,5 +79,5 @@ function toggleForm(formType) {
 
 function guestLogin() {
     // Redirect the user to the home page
-    window.location.href = "home.html";
+    window.location.href = "home";
 }

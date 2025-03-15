@@ -9,7 +9,7 @@ app.use(express.static("static"));
 
 //Set the view engine to PUG
 app.set('view engine', 'pug');
-app.set('views', './app/views');
+app.set('views', './views');
 
 
 // Route to render the Access Page
@@ -24,7 +24,22 @@ app.get("/home", (req, res) => {
 });
 
 
+// Route to render the explore page
+app.get("/explore", (req, res) => {
+    res.render("explore"); // This assumes "fashion.pug" is in the "views" folder
+});
+
+
+app.get("/", (req, res) => {
+    res.send("Welcome to the home page!"); // Send a response to the client
+});
+
+
 // Start server on port 3000
-app.listen(3000,function(){
-    console.log(`Server running at http://127.0.0.1:3000`);
+app.listen(3000, (err) => {
+    if (err) {
+        console.error('Error starting server:', err);
+    } else {
+        console.log('Server running at http://127.0.0.1:3000');
+    }
 });
