@@ -485,7 +485,7 @@ html {
 
 #contact button {
     padding: 10px 20px;
-    background-color: #a675f0;
+    background-color: #850d71;
     border: none;
     border-radius: 5px;
     color: white;
@@ -494,7 +494,7 @@ html {
 }
 
 #contact button:hover {
-    background-color: #d88a14;
+    background-color: #efc156;
 }
 
 /* Footer Section */
