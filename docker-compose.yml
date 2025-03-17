@@ -2,29 +2,27 @@ version: '3.3'
 services:
   web:
     build:
-      context: ./  # Build from the current directory
+      context: ./
     volumes:
-      - .:/src  # Mount the current directory to /src in the container
-    command: node index.js  # Run the application with Node.js
+      - .:/src
+    command: supervisor -e '.' index.js
     ports:
-      - "3000:3000"  # Expose port 3000
+      - "3000:3000"
     depends_on:
-      - db  # Wait for the db service to be ready
-
+      - db
   db:
-    image: mysql:8.0  # You can specify a version of MySQL here (e.g., 8.0)
+    image: mysql
     restart: always
     env_file:
-      - ./.env  # Load environment variables from .env
+      - ./.env
     ports:
-      - "3308:3306"  # Expose port 3308 on the host
+      - "3308:3306"
     volumes:
-      - ./db:/var/lib/mysql  # Persist MySQL data
-
+      - ./db:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     restart: always
     env_file:
-      - ./.env  # Load environment variables from .env
+      - ./.env
     ports:
-      - "8081:80"  # Expose port 8081 on the host for phpMyAdmin
+      - "8081:80"
