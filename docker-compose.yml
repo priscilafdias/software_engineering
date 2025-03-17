@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   web:
     build:
@@ -15,6 +14,9 @@ services:
     restart: always
     env_file:
       - ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sd2-db
     ports:
       - "3308:3306"
     volumes:
