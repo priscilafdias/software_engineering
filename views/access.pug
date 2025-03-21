@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Login/Register
+    link(rel="stylesheet" href="access.css")
+  body
+    .container
+      // Login Form
+      #login-form
+        h2 ACCESS
+        form(action="home.html" method="POST")
+          input(type="text" name="email" placeholder="Enter your email" required)
+          input(type="password" name="password" placeholder="Enter your password" required)
+          button(type="submit") Login
+        .toggle
+          p Don't have an account? 
+            a(href="#" onclick="toggleForm('register')") Register
+          p Login as a 
+            a(href="#" onclick="guestLogin()") Guest
+      
+      // Register Form
+      #register-form(style="display: none;")
+        h2 Register
+        form(action="home.html" method="POST")
+          input(type="text" name="firstname" placeholder="Enter your firstname" required)
+          input(type="text" name="lastname" placeholder="Enter you lastname" required)
+          input(type="email" name="email" placeholder="Enter your email" required)
+          input(type="password" name="password" placeholder="Enter your password" required)
+          button(type="submit") Register
+        .toggle
+          p Already have an account? 
+            a(href="#" onclick="toggleForm('login')") Login
+    
+    script(src="access.js")

@@ -1,0 +1,74 @@
+/* ============================
+   1. Base Styles
+============================= */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  
+  /* ============================
+     2. User Detail Section
+  ============================= */
+  
+  .user-detail {
+    background-color: rgb(204, 181, 216);
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-detail h2 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+  }
+  
+  .user-detail p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  
+  /* ============================
+     3. Profile Image Styles
+  ============================= */
+  
+  .profile-img {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  
+  /* ============================
+     4. Back-to-List Button Styles
+  ============================= */
+  
+  .back-to-list {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  
+  /* ============================
+     5. Links Styles
+  ============================= */
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title User Profile
+    link(rel="stylesheet" href="profile.css")
+  body
+    nav.brandbar
+      span.brand-name ReStyle
+    .container
+      a.back-home-fixed(href="home.html") ⬅Home
+      img#profilePic.profile-pic(src="default-avatar.png" alt="Profile Picture")
+      h2#userName.text-xl.font-semibold.mt-4 User Name
+      p#userEmail.text-gray-600 user@example.com
+    script(src="profile.js")
