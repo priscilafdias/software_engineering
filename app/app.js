@@ -1,57 +1,61 @@
 // Import express.js
 const express = require("express");
+const bodyParser = require("body-parser");
 
 // Create express app
 var app = express();
 
+// Middleware to handle form submissions and JSON data
+app.use(express.urlencoded({ extended: true }));  // For parsing form data
+app.use(express.json()); // For parsing JSON data
+
 // Add static files location
-app.use(express.static("static"));
+app.use(express.static("static"));  // Serve static files like CSS, JS, images
 
-//Set the view engine to PUG
-app.set('view engine', 'pug');
-app.set('views', './views');
+// Set the view engine to PUG
+app.set("view engine", "pug");
+app.set("views", "./views");
 
+// Import all routes 
+const accessRoute = require('./backend/routes/accessRoute.js');
+const userListRoute = require('./backend/routes/userlistRoute.js');
+const registerRoute = require('./backend/routes/registerRoute.js');
 
-// Route to render the Access Page
+// Register routes
+app.use('/api', registerRoute);  // Using the register route at /api/register
+
+// Routes for different pages
 app.get("/access", (req, res) => {
-    res.render("access"); 
+    res.render("access");
 });
 
-
-// Route to render the home page
 app.get("/home", (req, res) => {
-    res.render("home"); // This assumes "home.pug" is in the "views" folder
+    res.render("home"); // Renders home.pug
 });
 
-
-// Route to render the explore page
 app.get("/explore", (req, res) => {
-    res.render("explore"); // This assumes "explore.pug" is in the "views" folder
+    res.render("explore"); // Renders explore.pug
 });
 
-// To check if its working or not 
+// To check if it's working or not
 app.get("/", (req, res) => {
     res.send("Welcome to the fashion Page!"); // Send a response to the client
 });
 
-
-// Route to render the shared collection page
 app.get("/sharedcollection", (req, res) => {
-    res.render("sharedcollection"); // This assumes "sharedcollection.pug" is in the "views" folder
+    res.render("sharedcollection"); // Renders sharedcollection.pug
 });
 
-
-// Route to render the userlist page
 app.get("/userlist", (req, res) => {
-  res.render("userlist"); // Passing the users data to the template
+  res.render("userlist"); // Renders userlist.pug
 });
 
-// Route to render the detail page
 app.get("/detail", (req, res) => {
-    res.render("detail"); // Passing the users data to the template
+    res.render("detail"); // Renders detail.pug
 });
 
-// Start server on port 3000
+
+// Start the server on port 3000
 app.listen(3000, (err) => {
     if (err) {
         console.error('Error starting server:', err);

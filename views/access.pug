@@ -10,8 +10,8 @@ html(lang="en")
       // Login Form
       #login-form
         h2 ACCESS
-        form(action="home.html" method="POST")
-          input(type="text" name="email" placeholder="Enter your email" required)
+        form(action="/api/login" method="POST")
+          input(type="email" name="email" placeholder="Enter your email" required)
           input(type="password" name="password" placeholder="Enter your password" required)
           button(type="submit") Login
         .toggle
@@ -23,14 +23,18 @@ html(lang="en")
       // Register Form
       #register-form(style="display: none;")
         h2 Register
-        form(action="home.html" method="POST")
+        form(action="/api/register" method="POST")
           input(type="text" name="firstname" placeholder="Enter your firstname" required)
-          input(type="text" name="lastname" placeholder="Enter you lastname" required)
+          input(type="text" name="lastname" placeholder="Enter your lastname" required)
           input(type="email" name="email" placeholder="Enter your email" required)
           input(type="password" name="password" placeholder="Enter your password" required)
           button(type="submit") Register
         .toggle
           p Already have an account? 
             a(href="#" onclick="toggleForm('login')") Login
-    
+
+      // Success message that will be displayed on successful registration
+      div(id="success-message" style="display: none; color: green; font-weight: bold; margin-top: 20px;")
+        p User registered successfully! Redirecting to home page...
+
     script(src="access.js")
