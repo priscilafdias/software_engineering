@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2');
-const bcrypt = require('bcryptjs');
 require('dotenv').config(); // Load environment variables
 
 // Create MySQL connection using .env variables
