@@ -38,28 +38,30 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (valid) {
-                const formData = new FormData(registerForm);
+                // Prepare the data to be sent to the backend
+                const data = {
+                    firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    password: password
+                };
 
-                // Log form data to verify it's being captured correctly
-                for (let [key, value] of formData.entries()) {
-                    console.log(`${key}: ${value}`);
-                }
+                console.log("Form data:", data); // Log the data to verify
 
-                fetch(registerForm.action, {
+                fetch('/api/register', {
                     method: "POST",
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json' // Specify content type as JSON
+                    },
+                    body: JSON.stringify(data) // Send the data as JSON
                 })
                 .then(response => response.json())
                 .then(data => {
                     console.log("Server response:", data); // Log the response from the server
-                    if (data.message === 'User registered successfully') {
-                        // Show success message
-                        document.getElementById("success-message").style.display = "block";
-                        setTimeout(() => {
-                            window.location.href = "home"; // Redirect to home after success
-                        }, 2000);
+                    if (data.message === 'User registered successfully!') {
+                        window.location.href = "/home"; // Redirect to home page on successful login
                     } else {
-                        alert("Error: " + data.message); // Show error message
+                        alert(data.message); // Show error message
                     }
                 })
                 .catch(error => {
@@ -111,9 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     console.log("Server response:", data); // Log the response from the server
                     if (data.message === 'Login successful') {
-                        window.location.href = "home"; // Redirect to home page on successful login
+                        window.location.href = "/home"; // Redirect to home page on successful login
                     } else {
-                        alert("Error: " + data.message); // Show error message
+                        alert(data.message); // Show error message
                     }
                 })
                 .catch(error => {
@@ -152,5 +154,5 @@ function toggleForm(formType) {
 }
 
 function guestLogin() {
-    window.location.href = "home"; // Redirect the user to the home page
+    window.location.href = "/home"; // Redirect the user to the home page
 }
