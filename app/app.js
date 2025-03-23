@@ -17,9 +17,9 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 
 // Import all routes 
-const accessRoute = require('./backend/routes/accessRoute.js');
-const userListRoute = require('./backend/routes/userlistRoute.js');
-const registerRoute = require('./backend/routes/registerRoute.js');
+const accessRoute = require('./backend/accessRoute.js');
+const userListRoute = require('./backend/userlistRoute.js');
+const registerRoute = require('./backend/registerRoute.js');
 
 // Register routes
 app.use('/api', registerRoute);  // Using the register route at /api/register
