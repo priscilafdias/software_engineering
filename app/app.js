@@ -21,8 +21,6 @@ const accessRoute = require('./backend/accessRoute.js');
 const userListRoute = require('./backend/userlistRoute.js');
 const registerRoute = require('./backend/registerRoute.js');
 
-// Register routes
-app.use('/api', registerRoute);  // Using the register route at /api/register
 
 // Routes for different pages
 app.get("/access", (req, res) => {
