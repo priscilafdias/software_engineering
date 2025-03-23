@@ -28,7 +28,7 @@ router.use(express.json());
  * GET all users
  * Endpoint: GET /api/users
  */
-router.get('/users', (req, res) => {
+router.get('/api/users', (req, res) => {
     db.query('SELECT * FROM Access', (err, results) => {
         if (err) {
             return res.status(500).json({ error: err.message });
@@ -41,7 +41,7 @@ router.get('/users', (req, res) => {
  * GET a user by email
  * Endpoint: GET /api/users/:email
  */
-router.get('/users/:email', (req, res) => {
+router.get('/api/users/:email', (req, res) => {
     const email = req.params.email;
     db.query('SELECT * FROM Access WHERE email = ?', [email], (err, results) => {
         if (err) {
