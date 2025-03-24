@@ -25,6 +25,7 @@ const shareRoute = require('./backend/shareRoute.js');
 // Use the register route for POST requests
 app.use(accessRoute);
 app.use(registerRoute);
+app.use(shareRoute);
 
 // Routes for different pages
 app.get("/access", (req, res) => {
@@ -41,7 +42,7 @@ app.get("/explore", (req, res) => {
 
 // To check if it's working or not
 app.get("/", (req, res) => {
-    res.send("Welcome to the fashion Page!"); // Send a response to the client
+    res.send("Welcome to the fashion Page!(ReStyle). A home for everyone"); // Send a response to the client
 });
 
 app.get("/sharedcollection", (req, res) => {
