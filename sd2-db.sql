@@ -88,22 +88,12 @@ VALUES
 
 CREATE TABLE upload_outfit (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    image_url VARCHAR(255) NOT NULL,  -- Store image file path or URL
-    item_name ENUM(
-        'job-interview', 
-        'wedding', 
-        'birthday-party', 
-        'date-night', 
-        'school-events'
-    ) NOT NULL,
-    item_condition ENUM(
-        'new', 
-        'like-new', 
-        'gently-used', 
-        'worn'
-    ) NOT NULL,
-    item_size ENUM(
-        'xs', 's', 'm', 'l', 'xl', 'xxl'
-    ) NOT NULL,
-    item_description TEXT NOT NULL,
+    itemName VARCHAR(255) NOT NULL,
+    itemCondition VARCHAR(50) NOT NULL,
+    itemSize VARCHAR(50) NOT NULL,
+    itemDescription TEXT NOT NULL,
+    itemPrice DECIMAL(10,2) DEFAULT 0,
+    category VARCHAR(50) NOT NULL,
+    imageUrl VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
