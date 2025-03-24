@@ -35,7 +35,7 @@ router.get('/api/users', (req, res) => {
         }
         res.json(results);
     });
-});
+})
 
 /**
  * GET a user by email
