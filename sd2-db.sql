@@ -39,6 +39,24 @@ CREATE TABLE profile (
     description TEXT NOT NULL             -- DESCRIPTION
 );
 
+-- Outfit table
+CREATE TABLE outfits (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    size ENUM('XS', 'S', 'M', 'L', 'XL', 'XXL') NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL
+);
+
+INSERT INTO outfits (name, size, price, image, description)
+VALUES
+    ('Birthday Party Dress', 'S', 20.00, '/images/kids.webp', 'Perfect outfit for kids birthday parties.'),
+    ('Wedding Dress', 'L', 100.00, '/images/wedding.jpg', 'Elegant wedding dress for your big day.'),
+    ('Kids Skirt', 'S', 12.00, '/images/kidschool.jpg', 'Casual skirt for school events.'),
+    ('One Piece Dress', 'XL', 22.56, '/images/date.jpg', 'Stylish and elegant one-piece for date nights.');
+
+
 -- insert data into users table
 INSERT INTO profile (first_name, last_name, profile_picture, outfits_available, tags, description) 
 VALUES 
