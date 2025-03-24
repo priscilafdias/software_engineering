@@ -4,39 +4,19 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title User List
-    link(rel="stylesheet", href="home.css") 
-    link(rel="stylesheet", href="userlist.css") 
+    link(rel="stylesheet", href="home.css")
+    link(rel="stylesheet", href="userlist.css")
   body
     h1 All Users Sharing Outfits for Special Occasions
 
     // Display a list of users
     .user-list
-      .user-card
-        img(src="/images/user1.jpg", alt="Profile picture of Ishma Grg", class="profile-img")
-        h3 Ishma Grg
-        p Outfits Available: 5
-        p Tags: Wedding 
-        a(href="/user-profile/1") View Profile
+      each user in users
+        .user-card
+          img(src=user.img, alt="Profile picture of #{user.name}", class="profile-img")
+          h3 #{user.name}
+          p Outfits Available: #{user.outfits}
+          p Tags: #{user.tags}
+          a(href="/user-profile/#{user.id}") View Profile
 
-      .user-card
-        img(src="/images/user2.jpg", alt="Profile picture of Priscila Dias", class="profile-img")
-        h3 Priscila Dias
-        p Outfits Available: 3
-        p Tags: Birthday Party
-        a(href="/user-profile/2") View Profile
-
-      .user-card
-        img(src="/images/user3.jpg", alt="Profile picture of Maftuna A.", class="profile-img")
-        h3 Maftuna A.
-        p Outfits Available: 4
-        p Tags: Job Interviews
-        a(href="/user-profile/3") View Profile
-
-      .user-card
-        img(src="/images/user4.jpg", alt="Profile picture of Hanna A.", class="profile-img")
-        h3 Hanna A.
-        p Outfits Available: 4
-        p Tags: Date Nights
-        a(href="/user-profile/4") View Profile
-    
-    script(src="script.js")  
+    script(src="script.js")
