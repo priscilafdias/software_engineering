@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const menuIcon = document.querySelector(".menu-icon");
     const navLinks = document.querySelector(".nav-links");
@@ -72,8 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
         event.stopPropagation();
     });
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
     // Get dropdown menu links
@@ -122,3 +119,38 @@ document.getElementById("profile-link").addEventListener("click", function (even
     event.preventDefault(); // Prevents default anchor behavior
     window.location.href = "profile"; // Redirects to profile page
 });
+
+// ✅ Function to filter outfits based on user selection
+document.addEventListener("DOMContentLoaded", function () {
+    const filterForm = document.getElementById("filter-form");
+    const outfitCards = document.querySelectorAll(".outfit-card");
+
+    filterForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevents page reloading
+
+        // Getting filter values
+        const selectedCategory = document.getElementById("category").value;
+        const selectedItem = document.getElementById("item-name").value;
+        const selectedSize = document.getElementById("size").value;
+
+        // Iterating over the outfit cards to show only the filtered ones
+        outfitCards.forEach(card => {
+            const cardCategory = card.getAttribute("data-category");
+            const cardItem = card.getAttribute("data-name");
+            const cardSize = card.getAttribute("data-size");
+
+            // Check if the outfit meets the applied filters
+            const categoryMatch = !selectedCategory || cardCategory === selectedCategory;
+            const itemMatch = !selectedItem || cardItem === selectedItem;
+            const sizeMatch = !selectedSize || cardSize === selectedSize;
+
+            if (categoryMatch && itemMatch && sizeMatch) {
+                card.style.display = "block"; // Show the card
+            } else {
+                card.style.display = "none"; // Hide the card
+            }
+        });
+    });
+});
+
+ 
