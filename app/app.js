@@ -47,13 +47,37 @@ app.get("/sharedcollection", (req, res) => {
     res.render("sharedcollection"); // Renders sharedcollection.pug
 });
 
-app.get("/userlist", (req, res) => {
-  res.render("userlist"); // Renders userlist.pug
-});
 
 app.get("/detail", (req, res) => {
     res.render("detail"); // Renders detail.pug
 });
+
+// Example user data
+const users = [
+    { id: 1, name: "Ishma Grg", outfits: 5, tags: "Wedding", img: "/images/user1.png", description: "Ishma loves sharing outfits for special occasions like weddings." },
+    { id: 2, name: "Priscila Dias", outfits: 3, tags: "Birthday Party", img: "/images/user2.jpg", description: "Priscila enjoys styling outfits for various birthday parties." },
+    { id: 3, name: "Maftuna A.", outfits: 4, tags: "Job Interviews", img: "/images/user3.webp", description: "Maftuna specializes in outfits for job interviews, aiming for professional looks." },
+    { id: 4, name: "Hanna A.", outfits: 4, tags: "Date Nights", img: "/images/user4.jpg", description: "Hanna shares outfits perfect for romantic date nights." }
+  ];
+
+// Route to display the user list
+app.get('/userlist', (req, res) => {
+    // Check if users data exists and pass it to the template
+    console.log(users); // Check if users are being passed correctly to the template
+    res.render('userlist', { users: users }); // Pass the users array to the Pug template
+  });
+
+// Route to display a specific user's profile
+app.get('/user-profile/:id', (req, res) => {
+    const userId = req.params.id; // Get the user ID from the URL
+    const user = users.find(u => u.id == userId); // Find the user with that ID
+  
+    if (user) {
+      res.render('detail', { user }); // Pass the user object to the detail.pug template
+    } else {
+      res.status(404).send('User not found');
+    }
+  });
 
 
 // Start the server on port 3000
