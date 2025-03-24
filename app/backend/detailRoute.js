@@ -25,10 +25,8 @@ console.log('Connected to MySQL database (Details Route)');
 router.use(express.json());
 
 
-/**
- * POST detailed user profile
- * Endpoint: POST /api/user/details
- */
+
+
 router.post('/api/user/details', (req, res) => {
      const { email, password } = req.body;
 
