@@ -152,3 +152,49 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// For to share outfit via frontend and store into database (upload-outfit)
+document.addEventListener("DOMContentLoaded", function () {
+    const uploadForm = document.getElementById("upload-item-form");
+    const itemImageInput = document.getElementById("item-image");
+
+    uploadForm.addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form values
+        const formData = new FormData();
+        formData.append("itemName", document.getElementById("item-name").value);
+        formData.append("itemCondition", document.getElementById("item-condition").value);
+        formData.append("itemSize", document.getElementById("item-size").value);
+        formData.append("itemDescription", document.getElementById("item-description").value);
+        formData.append("itemPrice", document.getElementById("item-price").value || 0);
+        formData.append("category", "share"); // Set category for "share"
+        
+        // Append file only if an image is selected
+        if (itemImageInput.files.length > 0) {
+            formData.append("itemImage", itemImageInput.files[0]);
+        }
+
+        try {
+            const response = await fetch("/api/upload", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("Item uploaded successfully!");
+                uploadForm.reset();
+                closeUploadForm(); // Hide form after submission
+            } else {
+                alert("Error: " + result.error);
+            }
+        } catch (error) {
+            console.error("Upload failed:", error);
+            alert("Something went wrong. Please try again!");
+        }
+    });
+});
+
+
