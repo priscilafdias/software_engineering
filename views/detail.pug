@@ -3,44 +3,19 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title User Details
-    link(rel="stylesheet", href="home.css")   
-    link(rel="stylesheet", href="user-detail.css")  
+    title #{user.name} - User Details
+    link(rel="stylesheet", href="user-detail.css")
+  body
     h1 User Details
 
-    // For User 1: Ishma Grg
     .user-detail
-      h2 Ishma Gurung
-      img(src="/images/user1.jpg", alt="Profile picture of Ishma Grg", class="profile-img")
-      p Outfits Available: 5
-      p Tags: Wedding
-      p Description: Ishma loves sharing outfits for special occasions like weddings.
+      h2 #{user.name}
+      img(src=user.img, alt="Profile picture of #{user.name}", class="profile-img", width="200", height="200")
+      p Outfits Available: #{user.outfits}
+      p Tags: #{user.tags}
+      p Description: #{user.description}
 
-    // For User 2: Priscila Dias
-    .user-detail
-      h2 Priscila Dias
-      img(src="/images/user2.jpg", alt="Profile picture of Priscila Dias", class="profile-img")
-      p Outfits Available: 3
-      p Tags: Birthday Party
-      p Description: Priscila enjoys styling outfits for various birthday parties.
-
-    // For User 3: Maftuna A.
-    .user-detail
-      h2 Maftuna A.
-      img(src="/images/user3.jpg", alt="Profile picture of Maftuna A.", class="profile-img")
-      p Outfits Available: 4
-      p Tags: Job Interviews
-      p Description: Maftuna specializes in outfits for job interviews, aiming for professional looks.
-
-    // For User 4: Hanna A.
-    .user-detail
-      h2 Hanna A.
-      img(src="/images/user4.jpg", alt="Profile picture of Hanna A.", class="profile-img")
-      p Outfits Available: 4
-      p Tags: Date Nights
-      p Description: Hanna shares outfits perfect for romantic date nights.
-
-    // Link to go back to the user list or homepage
     .back-to-list
-      a(href="userlist") Back to User List  
-    script(src="script.js") 
+      a(href="/userlist") Back to User List
+
+    script(src="script.js")
