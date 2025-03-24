@@ -91,11 +91,11 @@ const outfits = [
 
 // Route to show outfit details
 app.get("/outfit/:id", (req, res) => {
-    const outfit = outfits.find(o => o.id == req.params.id);
-    if (!outfit) return res.status(404).send("Outfit not found");
-    res.render("detail-outfit", { outfit });
-  });
-  
+  const outfit = outfits.find(o => o.id == req.params.id);
+  if (!outfit) return res.status(404).send("Outfit not found");
+  res.render("detail-outfit", { outfit });
+});
+
 
 // Start the server on port 3000
 app.listen(3000, (err) => {
