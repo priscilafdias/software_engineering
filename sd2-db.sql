@@ -70,7 +70,7 @@ CREATE TABLE share_outfits (
     name VARCHAR(255) NOT NULL,               -- Occasion name (previously occasion)
     size VARCHAR(10) NOT NULL,                -- Size (e.g., XS, S, M, L, XL)
     image_url VARCHAR(255) NOT NULL,          -- Image path of the item
-    item_condition VARCHAR(50) NOT NULL,           -- Condition (e.g., New, Like New, Used)
+    item_condition VARCHAR(50) NOT NULL,      -- Condition (e.g., New, Like New, Used)
     description TEXT NOT NULL                 -- Description of the outfit
 );
 
@@ -86,3 +86,24 @@ VALUES
     ('Date Night', 'M', '/images/mini.jpg', 'Like New', 'Trendy mini dress with long sleeves for a stylish look.'),
     ('School Events', 'S', '/images/kid2.jpg', 'New', 'Cute and comfy top for kids to wear at school events.');
 
+CREATE TABLE upload_outfit (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_url VARCHAR(255) NOT NULL,  -- Store image file path or URL
+    item_name ENUM(
+        'job-interview', 
+        'wedding', 
+        'birthday-party', 
+        'date-night', 
+        'school-events'
+    ) NOT NULL,
+    item_condition ENUM(
+        'new', 
+        'like-new', 
+        'gently-used', 
+        'worn'
+    ) NOT NULL,
+    item_size ENUM(
+        'xs', 's', 'm', 'l', 'xl', 'xxl'
+    ) NOT NULL,
+    item_description TEXT NOT NULL,
+);
