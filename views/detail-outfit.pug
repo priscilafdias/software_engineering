@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= outfit.name
+    link(rel="stylesheet" href="explore.css")
+
+  body
+    h1 ReStyle
+
+    .outfit-detail-container
+      .image-section
+        img(src=outfit.image alt=outfit.name, width="300", height="300")
+
+      .info-section
+        h1= outfit.name
+        p 
+          strong Size: 
+          | #{outfit.size}
+        p 
+          strong Price: 
+          | #{outfit.price}
+        p 
+          strong Description: 
+          | #{outfit.description}
+
+        .btn-container
+          button.buy-btn Buy Now
+          i.fav-icon.fas.fa-heart(title="Add to saved items")
