@@ -73,7 +73,7 @@ app.get('/user-profile/:id', (req, res) => {
     const user = users.find(u => u.id == userId); // Find the user with that ID
   
     if (user) {
-      res.render('detail', { user }); // Pass the user object to the detail.pug template
+      res.render('detail-user', { user }); // Pass the user object to the detail.pug template
     } else {
       res.status(404).send('User not found');
     }
