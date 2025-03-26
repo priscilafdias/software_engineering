@@ -20,12 +20,13 @@ app.set("views", "./views");
 const accessRoute = require('./backend/accessRoute.js');
 const registerRoute = require('./backend/registerRoute.js');
 const shareRoute = require('./backend/shareRoute.js');
-
+const detailRoute = require('./backend/detailRoute.js');
 
 // Use the register route for POST requests
 app.use(accessRoute);
 app.use(registerRoute);
 app.use(shareRoute);
+app.use(detailRoute);
 
 // Routes for different pages
 app.get("/access", (req, res) => {
@@ -80,7 +81,6 @@ app.get('/user-profile/:id', (req, res) => {
       res.status(404).send('User not found');
     }
   });
-
 
 // Start the server on port 3000
 app.listen(3000, (err) => {
