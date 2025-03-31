@@ -21,16 +21,14 @@ const accessRoute = require('./backend/accessRoute.js');
 const registerRoute = require('./backend/registerRoute.js');
 const shareRoute = require('./backend/shareRoute.js');
 const detailRoute = require('./backend/detailRoute.js');
-const detailRoute = require('./backend/profileRoute.js');
-const profileEditRoute = require("./backend/profileEditRoute.js"); 
+
 
 // Use the register route for POST requests
 app.use(accessRoute);
 app.use(registerRoute);
 app.use(shareRoute);
 app.use(detailRoute);
-app.use(profileRoute);
-app.use(profileEditRoute);
+
 
 
 // Routes for different pages
