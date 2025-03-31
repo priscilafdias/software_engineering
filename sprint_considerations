@@ -1,0 +1,19 @@
+Grade Sprint 1: 64
+Grade Sprint 2: 73
+Grade Sprint 3: 62.39
+
+Sprint 4:
+Create ERD.
+Add payment method class diagram.
+Improve loading time.
+Padronise the diagram.
+Improve user stories.
+Create a payment database.
+
+
+UML: *Diamond box*
+
+Class Diagram: Correct the arrows, not a child arrow;
+
+Reduce the number of options for each category (4 or 5 options);
+
