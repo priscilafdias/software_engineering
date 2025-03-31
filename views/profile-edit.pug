@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .edit-profile-container
+    h1 Edit Profile
+    form(action="/profile/edit" method="POST")
+      label(for="name") Name:
+      input#name(type="text", name="name", value=user.name, required)
+      label(for="bio") Bio:
+      textarea#bio(name="bio", required)= user.bio
+      button(type="submit") Save Changes
+    a.back(href="/profile") Back to Profile

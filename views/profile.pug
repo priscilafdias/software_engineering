@@ -4,13 +4,24 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title User Profile
-    link(rel="stylesheet" href="profile.css")
+    link(rel="stylesheet", href="/css/profile.css")
   body
-    nav.brandbar
-      span.brand-name ReStyle
-    .container
-      a.back-home-fixed(href="home.html") ⬅Home
-      img#profilePic.profile-pic(src="default-avatar.png" alt="Profile Picture")
-      h2#userName.text-xl.font-semibold.mt-4 User Name
-      p#userEmail.text-gray-600 user@example.com
-    script(src="profile.js")
+    .profile-container
+      .header
+        img.avatar(src="/images/default-avatar.png", alt="Profile Picture")
+        .user-info
+          h1.username #{user.name || "User Name"}
+          p.bio #{user.bio || "This is a brief profile description/bio about the user."}
+          a.edit-profile-btn(href="/profile/edit") Edit Profile
+      .categories
+        .category
+          h2 Donate
+          p.count #{user.donateCount || 0}
+        .category
+          h2 Sell
+          p.count #{user.sellCount || 0}
+        .category
+          h2 Rent
+          p.count #{user.rentCount || 0}
+      button.logout-btn(type="button", onclick="logout()") Logout
+    script(src="/js/profile.js")
