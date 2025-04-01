@@ -25,27 +25,25 @@ db.connect(err => {
 // Middleware to parse JSON requests
 router.use(express.json());
 
-// GET route to render the profile page
-router.get('/profile', (req, res) => {
-    // Check if the user is logged in (assuming session middleware is used)
-    if (!req.session || !req.session.uid) {
-        return res.redirect('/login');
-    }
+// Route to render the profile page (with Pug)
+router.get('/profile/:userId', (req, res) => {
+    const userId = req.params.userId;
 
-    // Query the database for user details
-    // Assuming your Users table has columns: name, bio, donateCount, sellCount, rentCount, and avatar
-    const query = 'SELECT name, bio, donateCount, sellCount, rentCount, avatar FROM Users WHERE id = ?';
-    db.query(query, [req.session.uid], (err, results) => {
+    // Fetch the user's profile data from the database
+    db.query('SELECT firstname, lastname, email, profile_picture FROM users WHERE id = ?', [userId], (err, results) => {
         if (err) {
-            console.error("Database error:", err);
-            return res.status(500).send("Database error");
+            return res.status(500).json({ error: err.message });
         }
         if (results.length === 0) {
-            return res.status(404).send("User not found");
+            return res.status(404).send('User not found');
         }
-
-        // Render the profile template with user data
-        res.render('profile', { user: results[0] });
+        const user = results[0];
+        
+        // Ensure the user data is being passed correctly to the Pug template
+        console.log("User data:", user);  // Log the user data to check
+        
+        // Render the profile page with user data
+        res.render('profile', { user: user });
     });
 });
 
