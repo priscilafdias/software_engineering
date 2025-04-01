@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     console.log("Server response:", data); // Log the response from the server
                     if (data.message === 'User registered successfully!') {
-                        window.location.href = "/home"; // Redirect to home page on successful login
+                        window.location.href = "/home"; // Redirect to home page on successful register
                     } else {
                         alert(data.message); // Show error message
                     }
@@ -72,8 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Handle login form submission (similarly to registration)
-    const loginForm = document.querySelector("#login-form form"); // Select the login form
+    // Handle login form submission
+    const loginForm = document.querySelector("#login-form form");
+
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent the form from submitting normally
@@ -98,24 +99,24 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (valid) {
-                const formData = new FormData(loginForm);
-
-                // Log form data to verify it's being captured correctly
-                for (let [key, value] of formData.entries()) {
-                    console.log(`${key}: ${value}`);
-                }
-
-                fetch(loginForm.action, {
+                // Send the data as JSON in the fetch request
+                fetch('/api/login', {
                     method: "POST",
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log("Server response:", data); // Log the response from the server
-                    if (data.message === 'Login successful') {
+                    console.log("Server response:", data);
+                    if (data.message === 'User logged successfully!') {
                         window.location.href = "/home"; // Redirect to home page on successful login
                     } else {
-                        alert(data.message); // Show error message
+                        alert(data.message); // Show error message from the server
                     }
                 })
                 .catch(error => {
