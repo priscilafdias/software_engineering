@@ -3,25 +3,132 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title User Profile
-    link(rel="stylesheet", href="/css/profile.css")
+    title Your Profile
+    link(rel="stylesheet" href="home.css")
+    link(rel="stylesheet" href="profile.css")
+    link(rel="stylesheet" href="explore.css")
+    
+    // FontAwesome for icons
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=volunteer_activism")
+
   body
+    header
+      nav.brandbar
+        span.brand-name ReStyle
+
+      // Navigation Bar
+      nav.navbar
+        ul.nav-links
+          li.logo
+            img(src="/images/logo.jpg" alt="Fashion Icon logo")
+
+          li: a(href="#home") HOME
+          li: a(href="#explore") EXPLORE
+          li: a(href="#about") ABOUT
+          
+          // BROWSE DROPDOWN
+          li.dropdown#browse-dropdown
+            a(href="#browse" id="browse-btn" title="To Donate, Share, Sell Click me") BROWSE
+            ul.dropdown-menu
+              li.dropdown-sub
+                a(href="#") DONATE
+                ul.submenu
+                  li: a(href="#" onclick="openUploadForm('donate')") Women
+                  li: a(href="#" onclick="openUploadForm('donate')") Men
+                  li: a(href="#" onclick="openUploadForm('donate')") Kids
+
+              li.dropdown-sub
+                a(href="#") SHARE
+                ul.submenu
+                  li: a(href="#" onclick="openUploadForm('share')") Women
+                  li: a(href="#" onclick="openUploadForm('share')") Men
+                  li: a(href="#" onclick="openUploadForm('share')") Kids
+
+              li.dropdown-sub
+                a(href="#") SELL
+                ul.submenu
+                  li: a(href="#" onclick="openUploadForm('sell')") Women
+                  li: a(href="#" onclick="openUploadForm('sell')") Men
+                  li: a(href="#" onclick="openUploadForm('sell')") Kids
+
+          li: a(href="#contact") CONTACT
+
+          // NAVBAR ICONS
+          div.nav-icons
+            li: i.fav-icon.fas.fa-heart(title="Your Favourites")
+            li: i.cart-icon.fas.fa-shopping-cart(title="View your cart")
+
+            // PROFILE DROPDOWN
+            li.dropdown.profile-menu
+              a(href="#" id="profile-btn") 
+               i.profile-icon.fas.fa-user-circle 
+              ul.dropdown-menu#profile-menu
+                li: a(href="#" id="settings-link") Settings
+                li: a(href="#" id="profile-link") My Profile
+                li: a(href="#" id="logout-link") Logout
+
+
+            span.material-symbols-outlined(title="To view donated items, click here") volunteer_activism
+
+        // Hamburger Icon (Mobile)
+        div.menu-icon(onclick="toggleMenu()")
+          i.fas.fa-bars
+
+        div.search-box
+          input(type="text" placeholder="What are you looking for.....")
+          button 🔍
+
+    // Profile Section with input fields
     .profile-container
-      .header
-        img.avatar(src="/images/default-avatar.png", alt="Profile Picture")
-        .user-info
-          h1.username #{user.name || "User Name"}
-          p.bio #{user.bio || "This is a brief profile description/bio about the user."}
-          a.edit-profile-btn(href="/profile/edit") Edit Profile
-      .categories
-        .category
-          h2 Donate
-          p.count #{user.donateCount || 0}
-        .category
-          h2 Sell
-          p.count #{user.sellCount || 0}
-        .category
-          h2 Rent
-          p.count #{user.rentCount || 0}
-      button.logout-btn(type="button", onclick="logout()") Logout
-    script(src="/js/profile.js")
+      // Left side - Profile Form
+      .profile-form
+        .profile-header
+          h2 Hello Welcome,
+          h3 Profile Details
+        form#profile-form
+          .profile-item
+            label(for="first-name") First Name:
+            input(type="text" id="first-name" name="first-name" placeholder="Enter your firstname" required)
+
+          .profile-item
+            label(for="last-name") Last Name:
+            input(type="text" id="last-name" name="last-name" placeholder="Enter your lastname" required)
+
+          .profile-item
+            label(for="email") Email:
+            input(type="email" id="email" name="email" placeholder="Enter your email" required)
+
+          .profile-item
+            label(for="bio") Bio:
+            textarea(id="bio" name="bio" rows="4" placeholder="Tell us about yourself...")
+
+        .profile-footer
+          button(type="submit") Save Changes
+          button(type="button" onclick="cancelProfileChanges()") Cancel
+
+      // Right side - Profile Picture
+      .profile-picture-container
+        img#profile-image(src="#" alt="Profile Picture Preview" style="display: none;")
+        input(type="file" id="profile-picture" name="profile-picture" accept="image/*" onchange="previewImage(event)")
+
+    // Footer Section 
+    footer
+      .footer-container
+        p Fashion Icon - ReStyle
+        p London, United Kingdom
+        p &copy; 2025 Fashion Icon. All rights reserved.
+        p Contact us: 
+          a(href="tel:+1234567890") +1 (234) 567-890
+        p LET'S CONNECT!!
+        .social-media
+          a(href="#facebook" title="Facebook") 
+            i.fa-brands.fa-facebook
+          a(href="#twitter" title="Twitter") 
+            i.fa-brands.fa-twitter
+          a(href="#instagram" title="Instagram") 
+            i.fa-brands.fa-instagram
+        p: a(href="#share-section") HowToShare
+        p: a(href="#privacy-section") Privacy
+
+    script(src="profile.js")
