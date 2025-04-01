@@ -21,14 +21,14 @@ const accessRoute = require('./backend/accessRoute.js');
 const registerRoute = require('./backend/registerRoute.js');
 const shareRoute = require('./backend/shareRoute.js');
 const detailRoute = require('./backend/detailRoute.js');
-
+const profileRoute = require('./backend/profileRoute.js');
 
 // Use the register route for POST requests
 app.use(accessRoute);
 app.use(registerRoute);
 app.use(shareRoute);
 app.use(detailRoute);
-
+app.use(profileRoute);
 
 
 // Routes for different pages
@@ -54,7 +54,7 @@ app.get("/sharedcollection", (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-    res.render("/profile"); // Renders profile.pug
+    res.render("profile"); // Renders profile.pug
 });
 
 app.get("/profile-edit", (req, res) => {
