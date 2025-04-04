@@ -30,7 +30,6 @@ app.use(shareRoute);
 app.use(detailRoute);
 app.use(profileRoute);
 
-
 // Routes for different pages
 app.get("/access", (req, res) => {
     res.render("access");
