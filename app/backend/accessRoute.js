@@ -24,60 +24,40 @@ db.connect((err) => {
 // Middleware to parse JSON data from the frontend
 router.use(express.json());
 
-
 // POST route to handle user login
 router.post('/api/login', (req, res) => {
-    const {email, password } = req.body;
+    const { email, password } = req.body;
 
-    // Log the received data to the terminal
-    console.log('Received data:', {email, password });
+    // Log the received data to the terminal (optional)
+    console.log('Received data:', { email, password });
 
     // Basic validation for input data
     if (!email || !password) {
         return res.status(400).json({ error: 'All fields are required.' });
     }
 
-    // Check if email already exists in the database
+    // Check if the email exists in the database
     db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
 
-        if (results.length > 0) {
-            return res.status(400).json({ error: 'Email already exists.' });
-        }
-
-        // Insert new user into the database
-        const query = 'INSERT INTO users (email, password) VALUES (?, ?)';
-        db.query(query, [email, password], (err, results) => {
-            if (err) {
-                return res.status(500).json({ error: err.message });
-            }
-            res.status(201).json({message: 'User logged successfully!', userId: results.insertId });
-        });
-    });
-});
-
-// GET routes
-router.get('/api/users', (req, res) => {
-    db.query('SELECT * FROM users', (err, results) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json(results);
-    });
-});
-
-router.get('/api/users/:email', (req, res) => {
-    const email = req.params.email;
-    db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
         if (results.length === 0) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(401).json({ message: 'Invalid email or password' }); // Email not found
         }
-        res.json(results[0]);
+
+        const user = results[0];
+
+        // Compare the entered password directly with the stored password (plaintext)
+        if (password !== user.password) {
+            return res.status(401).json({ message: 'Invalid email or password' }); // Password doesn't match
+        }
+
+        // If login is successful, send a success message
+        res.status(200).json({ 
+            message: 'Login successful',
+            email:user.email
+        });
     });
 });
 
