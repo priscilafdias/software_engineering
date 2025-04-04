@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(response => response.json())
                 .then(data => {
                     console.log("Server response:", data);
-                    if (data.message === 'User logged successfully!') {
-                        window.location.href = "/home"; // Redirect to home page on successful login
+                    if (data.message === 'Login successful') {
+                        window.location.href = "/home"; //Redirect to home page
                     } else {
                         alert(data.message); // Show error message from the server
                     }
