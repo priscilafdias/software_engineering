@@ -7,10 +7,10 @@ CREATE TABLE users (
 
 INSERT INTO users (email, password) 
 VALUES
-    ('ishma1@example.com', 'pass47684'),
-    ('priscila2@example.com', 'password3t8ty'),
-    ('maftuna3@example.com', 'PASS856'),
-    ('hanna4@example.com', 'passwor4hj4');
+    ('ishma1@gmail.com', 'pass47684'),
+    ('priscila2@gmail.com', 'password3t8ty'),
+    ('maftuna3@gmail.com', 'PASS856'),
+    ('hanna4@gmail.com', 'passwor4hj4');
 
 
 CREATE TABLE register (
@@ -23,10 +23,10 @@ CREATE TABLE register (
 
 INSERT INTO register (firstname, lastname, email, password) 
 VALUES 
-    ('Ishma','Grg', 'ishma@example.com', 'password123'),
-    ('Priscila', 'Dias', 'priscila@example.com', 'password123'),
-    ('Maftuna', 'A', 'maftuna@example.com', 'password123'),
-    ('Hanna', 'A', 'hanna@example.com', 'password123');
+    ('Ishma','Grg', 'ishma@gmail.com', 'L!7vQy3k'),
+    ('Priscila', 'Dias', 'priscila@gmail.com', 'P@f2Lx9w'),
+    ('Maftuna', 'A', 'maftuna@gmail.com', 'Xy4sZ!8Q'),
+    ('Hanna', 'A', 'hanna@gmail.com', 'Jv3rB@6T');
 
 -- Table creation for profile
 CREATE TABLE profile (
