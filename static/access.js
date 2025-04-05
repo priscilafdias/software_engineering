@@ -113,8 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(response => response.json())
                 .then(data => {
                     console.log("Server response:", data);
-                    if (data.message === 'Login successful') {
-                        window.location.href = "/home"; //Redirect to home page
+                    if (data.role === 'admin') {
+                        window.location.href = "/admin"; // Redirect to admin page if admin login is successful
+                    } else if (data.role === 'user') {
+                        window.location.href = "/home"; // Redirect to home page if user login is successful
                     } else {
                         alert(data.message); // Show error message from the server
                     }
