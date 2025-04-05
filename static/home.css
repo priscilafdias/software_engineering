@@ -950,3 +950,20 @@ select {
     background: white;
     cursor: pointer;
 }
+/* Floating Chat Icon */
+#chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#chat-icon:hover {
+  background-color: #45a049;
+}
