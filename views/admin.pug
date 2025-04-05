@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Admin Chat Panel
+    link(rel="stylesheet", href="admin-chat.css")
+    script(src="admin-chat.js")
+  body
+    h1 Admin Chat Panel
+
+    // Chat Window
+    #chat-window.chat-window
+      .chat-header
+        h3 Chat with User
+        button.close-chat(type="button", onclick="closeChatWindow()") X
+
+      .chat-body
+        .chat-messages
+          //- Messages will be dynamically inserted by JS
+
+      form#chat-form
+        input(type="hidden", name="senderId", value="1") 
+        input(type="hidden", name="receiverId", value="2") 
+        textarea(name="message", placeholder="Type your reply..." required)
+        button(type="submit") Send
