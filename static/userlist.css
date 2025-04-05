@@ -1,0 +1,52 @@
+/* User List Styles */
+#user-list {
+    padding: 20px;
+    text-align: center;
+}
+
+.user-list {
+    display: flex;               /* Use Flexbox to align the cards side by side */
+    flex-wrap: wrap;             /* Allow wrapping of cards if there is not enough space */
+    gap: 20px;                   /* Add space between the cards */
+    justify-content: center;     /* Center the cards horizontally */
+}
+
+.user-card {
+    width: 240px;  /* Fixed width for each card */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+.profile-img {
+    width: 100%;  /* Make the image fill the width of the card */
+    height: auto;
+    border-radius: 50%;
+}
+
+.user-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.user-card p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.user-card a {
+    display: inline-block;
+    background-color: #74136f;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.user-card a:hover {
+    background-color: #a41b44;
+}

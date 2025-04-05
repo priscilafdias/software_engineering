@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{user.name} - User Details
+    link(rel="stylesheet", href="user-detail.css")
+  body
+    h1 User Details
+
+    .user-detail
+      h2 #{user.name}
+      img(src=user.img, alt="Profile picture of #{user.name}", class="profile-img", width="200", height="200")
+      p Outfits Available: #{user.outfits}
+      p Tags: #{user.tags}
+      p Description: #{user.description}
+
+    .back-to-list
+      a(href="/userlist") Back to User List
+
+    script(src="script.js")
