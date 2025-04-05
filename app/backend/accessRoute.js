@@ -24,11 +24,12 @@ db.connect((err) => {
 // Middleware to parse JSON data from the frontend
 router.use(express.json());
 
-// POST route to handle user login
+
+// POST route to handle login
 router.post('/api/login', (req, res) => {
     const { email, password } = req.body;
 
-    // Log the received data to the terminal (optional)
+    // Log the received data (optional for debugging)
     console.log('Received data:', { email, password });
 
     // Basic validation for input data
@@ -36,10 +37,19 @@ router.post('/api/login', (req, res) => {
         return res.status(400).json({ error: 'All fields are required.' });
     }
 
-    // Check if the email exists in the database
+    // Check if it's admin login (hardcoded credentials)
+    const adminEmail = 'admin56@gmail.com';
+    const adminPassword = 'adminPass347@'; // The admin credentials
+
+    if (email === adminEmail && password === adminPassword) {
+        return res.status(200).json({ message: 'Admin login successful', role: 'admin' });
+    }
+
+    // If it's not admin, check for regular user login in the database
     db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('DB error:', err);
+            return res.status(500).json({ error: 'Database error' });
         }
 
         if (results.length === 0) {
@@ -53,12 +63,13 @@ router.post('/api/login', (req, res) => {
             return res.status(401).json({ message: 'Invalid email or password' }); // Password doesn't match
         }
 
-        // If login is successful, send a success message
-        res.status(200).json({ 
+        // If login is successful, send a success message for regular user
+        res.status(200).json({
             message: 'Login successful',
-            email:user.email
+            email: user.email,
+            role: 'user' // Add role to identify regular user
         });
     });
 });
-
+  
 module.exports = router;
