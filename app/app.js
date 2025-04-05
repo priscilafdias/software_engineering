@@ -22,6 +22,7 @@ const registerRoute = require('./backend/registerRoute.js');
 const shareRoute = require('./backend/shareRoute.js');
 const detailRoute = require('./backend/detailRoute.js');
 const profileRoute = require('./backend/profileRoute.js');
+const adminRoute = require('./backend/adminRoute.js');
 
 // Use the register route for POST requests
 app.use(accessRoute);
@@ -29,6 +30,7 @@ app.use(registerRoute);
 app.use(shareRoute);
 app.use(detailRoute);
 app.use(profileRoute);
+app.use(adminRoute);
 
 // Routes for different pages
 app.get("/access", (req, res) => {
@@ -63,6 +65,14 @@ app.get("/profile-edit", (req, res) => {
 app.get("/detail", (req, res) => {
     res.render("detail"); // Renders detail.pug
 });
+ 
+app.get("/admin", (req, res) => {
+    res.render("admin"); // Renders admin.pug
+});
+
+app.get("/user", (req, res) => {
+  res.render("user"); // Renders user.pug
+});
 
 // Example user data
 const users = [
@@ -90,6 +100,23 @@ app.get('/user-profile/:id', (req, res) => {
       res.status(404).send('User not found');
     }
   });
+
+
+
+  app.get('/admin', (req, res) => {
+    // Fetch messages from database
+    const query = 'SELECT * FROM messages ORDER BY timestamp DESC';
+    db.query(query, (err, results) => {
+      if (err) {
+        console.error('Error fetching messages:', err);
+        return res.status(500).send('Error loading messages');
+      }
+  
+      // Render the admin dashboard and pass messages
+      res.render('admin', { messages: results });
+    });
+  });
+  
 
 // Start the server on port 3000
 app.listen(3000, (err) => {
