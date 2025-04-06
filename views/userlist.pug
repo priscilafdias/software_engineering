@@ -17,6 +17,8 @@ html(lang="en")
           h3 #{user.name}
           p Outfits Available: #{user.outfits}
           p Tags: #{user.tags}
-          a(href="/user-profile/#{user.id}") View Profile
+          // To view profile for specific user click view profile
+          a(href=`/user-profile/${user.id}`) View Profile   
+
 
     script(src="script.js")
