@@ -41,8 +41,8 @@ app.get("/home", (req, res) => {
     res.render("home"); // Renders home.pug
 });
 
-app.get("/explore", (req, res) => {
-    res.render("explore"); // Renders explore.pug
+app.get('/explore', (req, res) => {
+  res.render('explore', { outfits });  // Renders explore.pug
 });
 
 // To check if it's working or not
@@ -73,6 +73,64 @@ app.get("/admin", (req, res) => {
 app.get("/user", (req, res) => {
   res.render("user"); // Renders user.pug
 });
+
+//
+const outfits = [
+  {
+    id: "1",name: "Kids Party Dress",size: "S (14-15 yrs)",price: "£20",
+    description: "Perfect for birthday parties and other celebrations.",image: "/images/kids.webp",
+    category: "kids",
+  },
+  {
+    id: "2",name: "Wedding Dress",size: "L (18-19 yrs)",price: "£100",
+    description: "Elegant wedding dress for your special day.",image: "/images/wedding.jpg",
+    category: "women",
+  },
+  {
+    id: "3",name: "Kids Skirt",size: "S (14-15 yrs)",price: "£12",
+    description: "Cute skirt for school events and casual wear.",image: "/images/kidschool.jpg",
+    category: "kids",
+  },
+  {
+    id: "4",
+    name: "One-Piece Dress",size: "XL (20+ yrs)",price: "£22.56",
+    description: "Stylish one-piece dress for date nights.",image: "/images/date.jpg",
+    category: "women",
+  },
+  {
+    id: "5",name: "Double Fitted Blazer",size: "XL (20+ yrs)",price: "£45.98",
+    description: "Perfect for formal job interviews or meetings.",image: "/images/job1.jpg",
+    category: "women",
+  },
+  {
+    id: "6",name: "Black Formal Pants",size: "L (18-19 yrs)",price: "£32.10",
+    description: "Classic black pants for professional settings.",image: "/images/pant.jpg",
+    category: "men",
+  },
+  {
+    id: "7",name: "Long Sleeve Mini Dress",size: "L (18-19 yrs)",price: "£35",
+    description: "Trendy mini dress for a chic date night look.",image: "/images/mini.jpg",
+    category: "women",
+  },
+  {
+    id: "8",name: "Kids Top",size: "S (14-15 yrs)",price: "£20",
+    description: "Casual top for kids, perfect for birthday celebrations.",image: "/images/kid2.jpg",
+    category: "kids",
+  },
+];
+
+// Assuming you have Express set up
+app.get('/outfit/:id', (req, res) => {
+  const outfitId = req.params.id;  // Fetch the outfit ID from the URL
+  const outfit = outfits.find(o => o.id === outfitId);  // Find the outfit with this ID
+
+  if (outfit) {
+    res.render('detail-outfit', { outfit });  // Render the 'detail-outfit.pug' page with the outfit data
+  } else {
+    res.status(404).send('Outfit not found');  // Handle the case where the outfit is not found
+  }
+});
+
 
 // Example user data
 const users = [
