@@ -1,0 +1,247 @@
+/* ✅ Brand Bar Styling */
+.brandbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0c0b0b;  /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Poppins;
+    z-index: 1100; /* Ensure it's above everything */
+}
+
+/* Explore Section */
+#explore {
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.explore-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.explore-text h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.explore-text p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+
+/* Outfit Grid Styling */
+.outfit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Outfit Card Styling */
+.outfit-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.outfit-card:hover {
+    transform: scale(1.05);
+}
+
+.outfit-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.outfit-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #181616;
+}
+
+.outfit-card p {
+    font-size: 16px;
+    color: #080606;
+}
+
+/* Buy Button Styling */
+.buy-btn {
+    background: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: backgroundcolor 0.3s ease;
+}
+
+.buy-btn:hover {
+    background: #e65c00;
+}
+
+/* Buy Button and Favorite Icon Wrapper */
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Spacing between button and icon */
+    margin-top: 8px;
+}
+
+/* Favorite Icon Styling */
+.fav-icon {
+    font-size: 20px;
+    color: #999; /* Default color */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.fav-icon:hover {
+    color: red; /* Change to red when hovered */
+}
+
+
+/* Moving Banner */
+.moving-banner {
+    width: 100%;
+    background:#f85fa9;
+    color: #f9f9f9;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: poppins;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    margin-top: 38px; 
+}
+
+.moving-banner p {
+    display: inline-block;
+    position: relative;
+    left: 100%;
+    animation: scrollBanner 25s linear infinite;
+}
+
+@keyframes scrollBanner {
+    from {
+        left: 100%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+/* Pause animation when hovering */
+.moving-banner p:hover {
+    animation-play-state: paused;
+}
+
+/*filter*/
+.filter-section {
+    text-align: center;
+    padding: 15px;
+    background: #e0cf7f;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 1px;
+}
+
+.filter-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Spacing between elements */
+    flex-wrap: wrap; /* Prevent overflow on small screens */
+}
+
+.filter-options label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.filter-options select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-options button {
+    padding: 10px 15px;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.filter-options button:hover {
+    background-color: #e04d2b;
+}
+
+
+
+/* Footer Section */
+footer {
+    background-color: #093e08;
+    color: white;
+    padding:0;
+    text-align: center;
+    font-size: 10px; 
+}
+
+footer a {
+    color: #ffcc00; /* Makes the phone number link stand out */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff9900; /* Change color on hover */
+}
+
+footer .footer-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+footer p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-family:cursive
+}
+
+footer .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .social-media a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+footer .social-media a:hover {
+    color: #ffcc00;
+}

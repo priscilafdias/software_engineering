@@ -1,0 +1,969 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald";
+    font-size: auto;
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+
+/* ✅ Full-screen Background Image */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ✅ Brand Bar Styling */
+.brandbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0c0b0b;  /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: fantasy;
+    z-index: 1100; /* Ensure it's above everything */
+}
+
+
+/* ✅ Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 30;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: rgba(127, 109, 76, 0.942);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+    flex-wrap: wrap;  /* ✅ Allows wrapping */
+}
+
+.navbar .menu-icon {
+    display: none;  /* ✅ Hide hamburger icon by default */
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ✅ Logo Styling */
+.logo img {
+    height: 100px;
+    width: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgb(8, 5, 3);
+}
+
+/* Brand Name - ReStyle */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px; /* Adjust based on your design */
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 10px; /* Adds spacing between logo and text */
+    color: hsl(300, 41%, 97%); /* Adjust color as needed */
+    font-family:poppin;
+}
+
+
+/* ✅ Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;  /* Align items center */
+    gap: 1px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* charityShop */
+.material-symbols-outlined{
+    color: white;  /* Change color */
+    font-size: 24px;  /* Adjust size */
+    cursor: pointer;  /* Makes it clickable */
+    transition: color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* ✅ Change color on hover */
+.material-symbols-outlined{
+    color: #f4a261;  /* Change to any color you prefer */
+}
+
+
+
+/* ✅ Search Box */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-box button {
+    padding:  10px;
+    background-color: #a675f0;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    align-items: center;
+}
+
+.search-box button:hover {
+    background-color: #d88a14;
+}
+
+/* ✅ Centered Text Content */
+.text-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+}
+
+.text-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fe3276fe; 
+}
+
+.text-content p {
+    font-size: 30px;
+    font-weight: lighter;
+    color: #fe3276fe;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+}
+
+/* Hide dropdown by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Below the menu item */
+    left: 0;
+    background-color: rgba(250, 248, 248, 0.9);
+    list-style: none;
+    padding: 0;
+    min-width: 150px;
+    z-index: 1000;  /* high z-index make selected icon to overlap the other elements and comes at front */
+}
+
+/* Style dropdown items */
+.dropdown-menu li {
+    padding: 10px;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: rgb(8, 7, 7);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #807272;
+    color: black;
+}
+
+/* Show the dropdown when the 'show' class is added via JS */
+.dropdown-menu.show {
+    display: block;
+}
+
+
+
+/* Initially hide the close icon */
+.close-icon {
+    display: none; /* Hide close icon by default */
+    font-size: 30px;
+    color: rgb(254, 245, 245);
+    cursor: pointer;
+}
+
+/*for gap*/
+
+.nav-icons {
+    display: flex;
+    justify-content: space-around;  /* This will spread the icons evenly */
+    align-items: center;
+    gap: 20px;  /* Adjust the gap between icons */
+
+}
+
+.nav-icons i {
+    font-size: 24px; /* Adjust the icon size */
+    margin: 0 10px; /* Adjust the margin around each icon */
+}
+
+/* When the mobile menu is active, show the close icon */
+.nav-links.active ~ .close-icon {
+    display: block; /* Display the close icon when the menu is active */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+/* 🌟 Mobile Menu Adjustments */
+@media (max-width: 900px) {
+    /* Center the profile menu */
+    .profile-menu {
+        width: auto;
+        text-align: center;
+        position: relative;
+    }
+
+    /* Show menu icon (hamburger) on small screens */
+    .navbar .menu-icon {
+        display: block;
+    }
+
+    /* Hide nav-links initially */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: rgba(14, 13, 13, 0.9);
+        padding: 10px 0;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 999;
+    }
+
+    /* Show nav-links when active */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Adjust each nav item */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        padding: 10px 0;
+    }
+
+    /* Fix Profile Menu in Mobile */
+    .profile-menu {
+        width: 100%; /* Make it full width */
+        text-align: center; /* Center it */
+        position: relative; /* Keep it inside navbar */
+    }
+
+    /* ✅ Ensure dropdown stays visible and centered */
+    .dropdown-menu {
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 100%; /* Directly below profile icon */
+        left: 50%;
+        transform: translateX(-50%); /* Center it */
+        background-color: #fff;
+        width: 180px; /* Adjust width */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1000;
+    }
+
+    /* Show dropdown on click */
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    /* Reduce size of each menu item */
+    .dropdown-menu li {
+        padding: 8px;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    /* 📌 Fix Browse Dropdown in Mobile */
+    .dropdown#browse-dropdown .dropdown-menu {
+        width: 180px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 🛒 Adjust Navbar Icons */
+    .nav-icons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .nav-icons i {
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Hide nav-icons when menu is open */
+    .nav-links.active ~ .nav-icons {
+        display: none;
+    }
+    
+    .shared-collection button {
+        width: 100%; /* Make the button full-width on mobile */
+        padding: 10px;
+    }
+}
+
+/* ✅ JavaScript Toggle for Mobile Menu */
+.menu-icon.active + .nav-links {
+    display: flex;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+.explore-images {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.explore-images img {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.explore-images img:hover {
+    transform: scale(1.05);
+}
+
+/* Explore More Button */
+.explore-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.explore-more button {
+    padding: 12px 30px;
+    background-color:#fa280c;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.explore-more button:hover {
+    background-color: #ff9900;
+}
+
+
+/* About Section */
+#about {
+    padding: 0px 20px;
+    background-color: #ec0a4eed;
+    text-align: center;
+}
+
+#about .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgb(255, 247, 247);
+    font-family:"Dancing script";
+}
+
+#about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f6f1f1;
+
+}
+
+#about p {
+    font-size: 18px;
+    color: #f9efef;
+    line-height: 1.6;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#contact .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#contact label {
+    font-size: 16px;
+    color: #333;
+}
+
+#contact input, #contact textarea {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#contact button {
+    padding: 10px 20px;
+    background-color: #850d71;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#contact button:hover {
+    background-color: #efc156;
+}
+
+/* Footer Section */
+footer {
+    background-color: #093e08;
+    color: white;
+    padding:0;
+    text-align: center;
+    font-size: 10px; 
+}
+
+footer a {
+    color: #ffcc00; /* Makes the phone number link stand out */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff9900; /* Change color on hover */
+}
+
+footer .footer-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+footer p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-family:cursive
+}
+
+footer .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .social-media a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+footer .social-media a:hover {
+    color: #ffcc00;
+}
+
+.fa-brands {
+    display: inline-block;
+    font-size: 24px;
+    color: white 
+}
+
+
+/*Basic styling for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal button {
+    background-color: #a675f0;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal button:hover {
+    background-color: #d88a14;
+}
+
+.modal p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.modal a {
+    color: #a675f0;
+    text-decoration: none;
+}
+
+.modal a:hover {
+    color: #ffcc00;
+}
+
+/* Container and other styles */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    width: 60%;
+    max-width: 600px; /* Max width for large screens */
+    border-radius: 10px;
+    text-align: left; /* Align content to the left */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between elements */
+}
+
+
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 35px;
+}
+
+/* UPLOAD BOX */
+.hidden {
+    display: none;
+}
+
+.upload-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(244, 239, 239);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+}
+
+.upload-form-container h3 {
+    text-align: center;
+}
+
+.upload-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-form-container label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.upload-form-container input,
+.upload-form-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.upload-form-container button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-form-container button[type="submit"] {
+    background-color: #c80606;
+    color: rgb(249, 250, 242);
+    border-radius: 10px;
+}
+
+.upload-form-container button[type="button"] {
+    background-color: #e2ba09;
+    color: white;
+    border-radius: 10px;
+}
+
+
+/* Navigation Icons (Favourites, Cart, Profile) */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icons */
+}
+
+.fav-icon, .cart-icon, .profile-icon {
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.fav-icon:hover { color: #ff4757; } /* Red for favourites */
+.cart-icon:hover { color: #ffcc00; } /* Yellow for cart */
+.profile-icon:hover { color: #e5f416; } /* Light gray on hover */
+
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 0px;
+    text-decoration: none;
+    color: rgb(170, 170, 66);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Profile menu (dropdown) container */
+.profile-menu {
+    position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none;  /* Hide the dropdown by default */
+    position: absolute;  /* Position it relative to the profile icon */
+    top: 100%;  /* Position it just below the profile icon */
+    left:0;
+    background-color: #fff; /* Background for the dropdown */
+    min-width: 150px;  /* Set a minimum width for the dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow for visibility */
+    border-radius: 5px;  /* Rounded corners */
+    z-index: 100; /* Ensure it stays on top of other content */
+}
+
+
+
+/* Style for each dropdown item */
+.dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-menu .dropdown-menu li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #0f0e0e;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.profile-menu .dropdown-menu.click {
+    background-color: #f1f1f1; /* Light gray hover effect */
+}
+
+/* Show the dropdown when the profile icon is clicked */
+.profile-menu:hover .dropdown-menu {
+    display: block;
+}
+
+/* Styling for the profile icon */
+.profile-icon {
+    font-size: 50px;
+    color: #fbfbfb;
+    cursor: pointer;
+    position: relative;
+}
+/* delete button for shared collection*/
+#delete-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#delete-btn:hover {
+    background-color: darkred;
+}
+
+
+
+/* Share Collection Page Styling */
+#shared-collection {
+    padding: 20px;
+    text-align: center;
+}
+
+#shared-collection h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#shared-collection p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+#shared-collection ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#shared-collection ul li {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.shared-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.shared-items .item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.shared-items .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.shared-collection-btn {
+    background-color: #fa280c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.shared-collection-btn:hover {
+    background-color: #cf850e;
+}
+
+
+
+/* Outfit Grid Styling */
+.outfit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: white;
+    min-width: 150px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    list-style: none; 
+    padding-left: 0;
+    cursor: pointer;
+}
+
+.dropdown-sub:hover .submenu {
+    display: block;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+/* Floating Chat Icon */
+#chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#chat-icon:hover {
+  background-color: #45a049;
+}
