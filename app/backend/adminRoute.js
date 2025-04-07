@@ -59,5 +59,20 @@ router.get('/user/messages', (req, res) => {
   });
 });
 
+// Contact forum to be added in database 
+// View on script Js to see the submission route
+router.post('/submit-form', (req, res) => {
+  const { name, email, message } = req.body;
+
+  const sql = 'INSERT INTO contactforum(name, email, message) VALUES (?, ?, ?)';
+  db.query(sql, [name, email, message], (err, result) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      return res.status(500).send('Error saving data.');
+    }
+    console.log('Form Submitted:', result.insertId);
+    res.status(200).send('Your message was received. Thank you!');
+  });
+});
 
 module.exports = router;

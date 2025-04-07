@@ -30,21 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (message) {
             // Get current time in hh:mm AM/PM format
-            const now = new Date();
+            const newMessage = document.createElement("div");
+            newMessage.classList.add("message");
             const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
             // Create new message div and append to chat box
-            const newMessage = document.createElement("div");
-            newMessage.classList.add("message");
             newMessage.innerHTML = `
-                <p class="sender">You:</p>
-                <p>${message} <span class="timestamp">${timeString}</span></p>
+              <p class="sender">You:</p>
+              <p>${message}</p>
+              <small>${timestamp}</small>
             `;
             chatMessages.appendChild(newMessage);
 
             // Send the message to the backend via POST request
-            const sender_id = 1; // Replace with actual sender ID (could be session or logged in user ID)
-            const receiver_id = 2; // Replace with actual receiver ID (could be a selected user)
+            const sender_id = 1; 
+            const receiver_id = 2;
 
             // Send message to the server
             fetch('/send-message', {

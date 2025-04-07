@@ -197,4 +197,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// for contact forum
+document.querySelector("form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.querySelector("#name").value,
+      email: document.querySelector("#email").value,
+      message: document.querySelector("#message").value
+    };
 
+    const response = await fetch("/submit-form", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.text();
+    alert(result); // Show response from server
+  });
