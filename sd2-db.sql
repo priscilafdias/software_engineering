@@ -82,7 +82,7 @@ VALUES
     ('School Events', 'S', '/images/kidschool.jpg', 'Used', 'Comfortable and stylish skirt for school events.'),
     ('Date Night', 'L', '/images/date.jpg', 'Like New', 'Chic one-piece dress for a romantic date night.'),
     ('Job Interviews', 'M', '/images/job1.jpg', 'New', 'Professional double-fitted blazer for interviews.'),
-    ('Job Interviews', 'L', '/images/pant.jpg', 'Used', 'Sleek black formal pants for office or interviews.'),
+    ('Job Interviews', 'L', '/images/pant.jpg', 'Used', 'Sleek black formal trousers for office or interviews.'),
     ('Date Night', 'M', '/images/mini.jpg', 'Like New', 'Trendy mini dress with long sleeves for a stylish look.'),
     ('School Events', 'S', '/images/kid2.jpg', 'New', 'Cute and comfy top for kids to wear at school events.');
 

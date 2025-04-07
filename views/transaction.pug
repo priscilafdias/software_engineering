@@ -1,0 +1,46 @@
+// views/transaction.pug
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/css/transaction.css')
+    script(src="https://js.stripe.com/v3/")
+  body
+    .container
+      // Checkout Form Section
+      .checkout-form
+        h1 Secure Checkout
+        .progress
+          ul
+            li.active Shipping
+            li.active Payment
+            li Review
+        form(id='payment-form')
+          h2 Payment Information
+          label(for='card-element') Credit or Debit Card
+          div#card-element
+          div#card-errors(role='alert')
+          button(type='submit') Place Order
+
+      // Order Summary Section
+      .order-summary
+        h2 Order Summary
+        ul.order-items
+          li
+            img(src='https://via.placeholder.com/50', alt='Product image')
+            span Product A - $25.00
+          li
+            img(src='https://via.placeholder.com/50', alt='Product image')
+            span Product B - $25.00
+        hr
+        p Total: $50.00
+        .trust
+          img(src='https://via.placeholder.com/40?text=SSL', alt='SSL Secure')
+          span Secure Checkout
+
+    // Pass publishable key to JS
+    script.
+      const stripePublishableKey = "#{stripePublishableKey}";
+    script(src="/js/transaction.js")

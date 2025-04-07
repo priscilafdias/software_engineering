@@ -1,6 +1,10 @@
 // Import express.js
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require('path');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
 
 // Create express app
 var app = express();
@@ -23,6 +27,7 @@ const shareRoute = require('./backend/shareRoute.js');
 const detailRoute = require('./backend/detailRoute.js');
 const profileRoute = require('./backend/profileRoute.js');
 const adminRoute = require('./backend/adminRoute.js');
+const transactionRoute = require("./backend/transactionRoute.js");
 
 // Use the register route for POST requests
 app.use(accessRoute);
@@ -31,6 +36,8 @@ app.use(shareRoute);
 app.use(detailRoute);
 app.use(profileRoute);
 app.use(adminRoute);
+app.use(transactionRoute);
+
 
 // Routes for different pages
 app.get("/access", (req, res) => {
@@ -65,7 +72,17 @@ app.get("/profile-edit", (req, res) => {
 app.get("/detail", (req, res) => {
     res.render("detail"); // Renders detail.pug
 });
- 
+
+// In your route for the transaction page:
+app.get('/transaction', (req, res) => {
+  res.render('transaction', {
+    title: 'Complete Your Transaction',
+    stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY
+  });
+});
+
+
+
 app.get("/admin", (req, res) => {
     res.render("admin"); // Renders admin.pug
 });
