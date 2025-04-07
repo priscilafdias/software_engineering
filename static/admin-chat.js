@@ -29,10 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = messageInput.value.trim();
 
         if (message) {
-            // Get current time in hh:mm AM/PM format
+            const now = new Date(); 
+            const timestamp = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        
             const newMessage = document.createElement("div");
             newMessage.classList.add("message");
-            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
             // Create new message div and append to chat box
             newMessage.innerHTML = `
