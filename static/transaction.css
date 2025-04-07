@@ -1,0 +1,153 @@
+/* public/css/transaction.css */
+
+body {
+    background: #f8f0f8;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .checkout-form, .order-summary {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  .checkout-form {
+    flex: 2;
+    min-width: 300px;
+    margin-right: 20px;
+  }
+  
+  .order-summary {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  h1 {
+    color: #d63384;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #d63384;
+    margin-bottom: 10px;
+  }
+  
+  .progress ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .progress ul li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .progress ul li.active {
+    color: #d63384;
+    font-weight: bold;
+  }
+  
+  .progress ul li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    background: #ccc;
+    z-index: -1;
+  }
+  
+  .order-summary h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .order-items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .order-items li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .order-items li img {
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .order-summary p {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .trust {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+  .trust img {
+    width: 40px;
+    margin-right: 10px;
+  }
+  
+  .trust span {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Stripe Element styling */
+  #card-element {
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 4px;
+    background: #fafafa;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background: #d63384;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    background: #c22a75;
+  }
+  
+  #card-errors {
+    color: #e53e3e;
+    margin-bottom: 10px;
+    text-align: center;
+  }
